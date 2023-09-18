@@ -5,21 +5,93 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-* {
-  box-sizing: border-box;
-}
+/* Apply smooth scrolling behavior 
+html {
+  scroll-behavior: smooth;
+} */
 
 body {
+  background-color: white;
   font-family: Arial, Helvetica, sans-serif;
   margin: 0;
 }
 
+.dark-mode {
+  background-color: #555;
+  color: white;
+}
+
+/* navbar section */
+
+/* Style the top navigation bar */
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: block;
+  transition: top 0.3s;
+}
+
+/* Style the navigation bar links */
+.navbar a {
+  float: left; /* Make sure that the links stay side-by-side */
+  display: block; /* Change the display to block, for responsive reasons (see below) */
+  color: white; /* White text color */
+  text-align: center; /* Center the text */
+  padding: 14px 20px; /* Add some padding */
+  text-decoration: none; /* Remove underline */
+}
+
+/* Right-aligned link */
+.navbar div.right {
+  float: right; /* Float a link to the right */
+  display: block; /* Change the display to block, for responsive reasons (see below) */
+  color: white; /* White text color */
+  text-align: center; /* Center the text */
+  padding: 14px 20px; /* Add some padding */
+  text-decoration: none; /* Remove underline */
+  cursor: pointer; /* Set cursor to pointer on hover */
+}
+
+/* Styling for active navbar link */
+.navbar a.active {
+  background-color: #007bff;
+  color: white; /* Active link color */
+}
+
+/* popup style */
+.popup {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+}
+
+#popup-text {
+  margin: 0;
+}
+/* popup style */
+
+/* navbar section */
+
+
+
+/* header section */
+
 /* Style the header */
 .header {
-  padding: 80px;
+  padding: 20px 0; /* Adjust the top and bottom padding to create spacing without affecting hr width */
   text-align: center;
-  background: #1abc9c;
+  background: linear-gradient(135deg, #045D56, #026837, #007700);
   color: white;
+  height: 302px;
 }
 
 /* Increase the font size of the h1 element */
@@ -27,156 +99,612 @@ body {
   font-size: 40px;
 }
 
-/* Style the top navigation bar */
-.navbar {
-  overflow: hidden;
-  background-color: #333;
+/* Style the hr tag */
+hr.custom-hr {
+  border: none;
+  border-top: 3px dashed #333; /* Set the color and style of the line */
+  margin: 20px 0; /* Add some spacing above and below the hr */
 }
 
-/* Style the navigation bar links */
-.navbar a {
-  float: left;
+/* header section */
+
+/* Main content */
+
+/* three collumns */
+  .three-columns {
+    float: left;
+    width: 33.33%;
+    box-sizing: border-box;
+    padding: 20px;
+  }
+
+  .three-clear {
+    clear: both;
+  }
+
+  @media (max-width: 768px) {
+    .three-columns {
+      width: 100%;
+      float: none;
+    }
+  }
+/* three collumns */
+
+/* two collumns */
+  .column {
+    float: left;
+    width: 50%;
+    box-sizing: border-box;
+    padding: 30px;
+  }
+
+  .clear {
+    clear: both;
+  }
+  
+    @media (max-width: 768px) {
+    .column {
+      width: 100%; /* Make columns full width on mobile */
+      float: none; /* Remove float on mobile */
+    }
+  }
+
+/* two columns modal */
+        /* Style for the modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            padding-top: 100px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        /* Modal Content */
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 500px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        /* The Close Button */
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Add Animation */
+        .modal-content {
+            animation-name: zoom;
+            animation-duration: 0.6s;
+        }
+
+        @keyframes zoom {
+            from { transform: scale(0) }
+            to { transform: scale(1) }
+        }
+
+/* two columns modal */
+
+/* two columns */
+
+/* abbbanner */
+
+.addbanner {
+  padding: 10px; /* Some padding */
+  text-align: center; /* Center text*/
+  overflow: hidden; /* Clear float container */
+}
+
+.center-container {
+  display: inline-block; /* Make the container inline-block to center its children */
+  text-align: left; /* Align children's text to the left */
+}
+
+.input-like {
+  border: 1px solid #ccc;
+  padding: 5px;
+  border-radius: 5px;
+  outline: none;
+  width: 400px; /* Adjust the width as needed */
+  margin: 0 auto; /* Center the div horizontally */
+  float: left; /* Float the div to the left */
+}
+
+button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: transform 0.3s; /* Add transition for smooth scaling */
+
+  /* this is to change the spacing between div and button */
+  margin-left: 10px; /* Adjust the spacing between the div and button */
+  float: left; /* Float the button to the left */
+  /* this is to change the spacing between div and button */
+}
+
+button:hover {
+  transform: scale(1.1); /* Enlarge the button on hover */
+}
+
+/* Media query for screens smaller than 768px (typical mobile screens) */
+@media (max-width: 768px) {
+  .center-container {
+    text-align: center; /* Center the children horizontally for mobile devices */
+  }
+
+  .input-like {
+    max-width: 100%; /* Set the width to 100% for mobile devices */
+    width: auto; /* Allow the div to expand to its content */
+    float: none; /* Remove float for mobile devices */
+  }
+
+  button {
+    margin-left: 0; /* Reset margin to center the button */
+    float: none; /* Remove float for mobile devices */
+  }
+}
+
+/* abbbanner */
+
+/* form */
+
+.form-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
   display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 20px;
-  text-decoration: none;
+  margin-bottom: 5px;
 }
 
-/* Right-aligned link */
-.navbar a.right {
-  float: right;
-}
-
-/* Change color on hover */
-.navbar a:hover {
-  background-color: #ddd;
-  color: black;
-}
-
-a.active {
-  background-color: #ddd;
-  color: black;
-}
-
-/* Column container */
-.row {  
-  display: flex;
-  flex-wrap: wrap;
-}
-
-/* Create two unequal columns that sits next to each other */
-/* Sidebar/left column */
-.side {
-  flex: 30%;
-  background-color: #f1f1f1;
-  padding: 20px;
-}
-
-/* Main column */
-.main {   
-  flex: 70%;
-  background-color: white;
-  padding: 20px;
-}
-
-/* Fake image, just for this example */
-.fakeimg {
-  background-color: #aaa;
+input,
+textarea {
   width: 100%;
-  padding: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
-/* Footer */
-.footer {
-  padding: 20px;
+@media (max-width: 600px) {
+  .form-container {
+    max-width: 100%;
+  }
+}
+
+
+/* form */
+
+/* social media icons */
+.fa {
+  padding: 10px;
+  font-size: 15px;
+  width: 15px;
   text-align: center;
-  background: #ddd;
+  text-decoration: none;
+  margin: 5px 2px;
 }
 
-  #top-button {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-  }
-
-/* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 700px) {
-  .row {   
-    flex-direction: column;
-  }
+.fa:hover {
+    opacity: 0.7;
 }
 
-/* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
-@media screen and (max-width: 400px) {
-  .navbar a {
-    float: none;
-    width:100%;
-  }
+.fa-facebook {
+  background: #3B5998;
+  color: white;
 }
+
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+
+.fa-google {
+  background: #dd4b39;
+  color: white;
+}
+/* social media icons */
+
+/* Main content */
+
+/* footer */
+
+.footer {
+  padding: 20px; /* Some padding */
+  text-align: center; /* Center text*/
+  background: #333; /* Dark background */
+  color: white;
+}
+
+/* footer */
 </style>
 </head>
-<body>
+<body id="home">
 
-<div class="navbar">
-  <a href="index.html">Home</a>
-  <a href="contact.html">Contact</a>
-  <a href="#" class="right">Link</a>
+<!-- Navbar -->
+
+<div id="hide-navbar" class="navbar">
+  <a href="#home">&#127968;</a>
+  <a href="#about">About</a>
+  <a href="#contact">Contact</a>
+    <div id="myDIV" onclick="toggleDarkMode()" class="right">
+        <span id="toggleIcon">🌙</span>
+    </div>
 </div>
+
+<div id="popup" class="popup">
+  <p id="popup-text">Theme changed!</p>
+</div>
+
+
+<!-- Navbar -->
+
+<!-- Header -->
 
 <div class="header">
-  <h1>My Website</h1>
+  <br>
+  <br>
+  <br>
+  <br>
+  <hr class="custom-hr">
+    <h1>&#9770; My Website &#128332;</h1>
   <p>A website created by me.</p>
+  <hr class="custom-hr">
 </div>
 
-<div class="row">
-  <div class="side">
-    <h2>About Me</h2>
-    <h5>Photo of me:</h5>
-    <div class="fakeimg" style="height:200px;">Image</div>
-    <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
-    <h3>More Text</h3>
-    <p>Lorem ipsum dolor sit ame.</p>
-    <div class="fakeimg" style="height:60px;">Image</div><br>
-    <div class="fakeimg" style="height:60px;">Image</div><br>
-    <div class="fakeimg" style="height:60px;">Image</div>
+<!-- Header -->
+
+<!-- Main content -->
+
+<!-- brief info columns -->
+
+  <div class="three-columns">
+    <h2>&#x1F4CD; Find me</h2>
+    <p>location: Phoenix, arizona, usa.</p>
   </div>
-  <div class="main">
-    <h2>TITLE HEADING</h2>
-    <h5>Title description, Dec 7, 2017</h5>
-    <div class="fakeimg" style="height:200px;">Image</div>
-    <p>Some text..</p>
-    <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+  
+  <div class="three-columns">
+    <h2>&#9742; Call me</h2>
+    <a href="https://wa.me/+526624794308">📲 Phone : +526624794308</a>
+  </div>
+  
+  <div class="three-columns">
+    <h2>&#x1F4EC; Email me</h2>
+    <a href="mailto:rlopez0712@outlook.com">✉️ Email : rlopez0712@outlook.com</a>
+  </div>
+
+  <div class="three-clear"></div>
+  
+<!-- brief info columns -->
+
+<!-- about columns -->
+<div id="about" class="addbanner">
+  <h2>&#128214; About me</h2>
+</div>
+
+<!-- column 1 -->
+  <div class="column">
+        <h2>&#9998; Our story</h2>
+      <p>In the heart of a vibrant emerald forest, where the leaves danced to the gentle whispers of the wind, a tale began to unfold. Deep within this lush paradise, a curious wanderer named Luna found herself on an enchanting journey. Her eyes, the color of tranquil aquamarine waters, mirrored the depths of the mysterious woods she ventured into.</p>
+      <p>As Luna walked along the moss-covered path, the air was tinged with the scent of pine and earth. Shafts of sunlight filtered through the thick canopy, creating a mosaic of dappled light on the forest floor. Birds serenaded her with their melodious tunes, their feathers adorned in shades of lime and olive.</p>
+      <p>Guided by an ancient map passed down through generations, Luna's quest was to find the fabled 'Eternal Spring' hidden deep within the heart of the woods. Legends spoke of its waters possessing a hue that shifted between shades of blue and green, an ethereal dance of colors that held the promise of everlasting life.</p>
+  </div>
+  
+<!-- column 2 -->
+  <div class="column">
+<!-- The Trigger -->
+<pre id="openModalTrigger">
+                  ,-------------------.
+                 ( WHAT EEEEES IT MAN? )
+                  `-------------------'
+                         '
+                          \    ,-_
+                              ',' )
+     /|_\|/_/|              _// ,'
+    , ,--,-. .           ,'  / ,
+   / ( O _O ) \        _;___    .
+   |  (___)'  |        ()/()/   ,
+   |.   ,     |        ,>     ,'
+  /  '-'\__,' |         |  /',\
+ //|.      \\\ \        '^;  <-^.
+ ||| ,     `-'|\\             )  '
+ |||        ' |||        _n___|/, |
+c  D  '    ,  c  D      -_ ---,'  |
+ UU '  '-'   ' UU         U   <   (
+     \  __  /                ,.-. ._,.
+    __||  ||__              ((   `'- |
+   (___/  \___) [lf]      c___)     U
+</pre>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+    <span class="close" id="closeModalBtn">&times;</span>
+    <div class="modal-content">
+	            <pre>
+                  ,-------------------.
+                 ( WHAT EEEEES IT MAN? )
+                  `-------------------'
+                         '
+                          \    ,-_
+                              ',' )
+     /|_\|/_/|              _// ,'
+    , ,--,-. .           ,'  / ,
+   / ( O _O ) \        _;___    .
+   |  (___)'  |        ()/()/   ,
+   |.   ,     |        ,>     ,'
+  /  '-'\__,' |         |  /',\
+ //|.      \\\ \        '^;  <-^.
+ ||| ,     `-'|\\             )  '
+ |||        ' |||        _n___|/, |
+c  D  '    ,  c  D      -_ ---,'  |
+ UU '  '-'   ' UU         U   <   (
+     \  __  /                ,.-. ._,.
+    __||  ||__              ((   `'- |
+   (___/  \___) [lf]      c___)     U
+  </pre>
+    </div>
+</div>
+  </div>
+
+  <div class="clear"></div>
+  
+<!-- about columns -->
+
+<!-- addbanner -->
+                                          
+<div class="addbanner">
+  <h2>Feel free to visit my GitHub</h2>
+  <div class="center-container">
+    <div class="input-like" id="textToCopy" contenteditable="true">
+      https://github.com/rlopez0712/testrep0712.git
+    </div>
+    <button id="copyButton">📋 Copy Text</button>
+  </div>
+</div>
+
+                                            
+<!-- addbanner -->
+
+<!-- contact columns -->
+<div id="contact" class="addbanner">
+  <h2>&#x1F4E9; Contact me</h2>
+</div>
+
+  
+<!-- column 1 -->
+  <div class="column">
+    <h2>&#8505; Info</h2>
+    <p>location: Phoenix, arizona, usa.</p>
+    <p><a href="https://wa.me/+526624794308">📲 Phone : +526624794308</a></p>
+    <p><a href="mailto:rlopez0712@outlook.com">✉️ Email : rlopez0712@outlook.com</a></p>
+    <h3>Follow us on social media</h3>
+    <a href="https://en.wikipedia.org/wiki/ChatGPT" class="fa fa-facebook"><i>&#128279;</i></a>
+    <a href="https://en.wikipedia.org/wiki/ChatGPT" class="fa fa-twitter"><i>&#x1F426;</i></a>
+    <a href="https://en.wikipedia.org/wiki/ChatGPT" class="fa fa-google"><i>&#9729;</i></a>
     <br>
-    <h2>TITLE HEADING</h2>
-    <h5>Title description, Sep 2, 2017</h5>
-    <div class="fakeimg" style="height:200px;">Image</div>
-    <p>Some text..</p>
-    <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
   </div>
-</div>
 
-<div class="footer">
-  <h2>Footer</h2><button id="top-button" onclick="scrollToTop();">Back to top</button>
-</div>
+<!-- column 2 -->
+  <div class="column">
+   <div class="form-container">
+    <h2>&#x1F4E4; Send us a message</h2>
+<form id="myForm">
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" required>
+  </div>
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" required>
+  </div>
+  <div class="form-group">
+    <label for="message">Message</label>
+    <textarea id="message" name="message" rows="4" required></textarea>
+  </div>
+  <button type="submit">&#9993; Submit</button>
+</form>
+  </div>
+  </div>
+
+  <div class="clear"></div>
+
+<!-- contact columns -->
+
+<!-- Main content -->
+
+<!-- footer -->
+
+<div class="addbanner">
+  <a href="#top" class="back-to-top">Back to Top</a>
+</div>  
+                                     
+ <div class="footer">
+  <h3>Pagina creada por Jordan &#169;</h3>
+</div>                                             
+                                            
+<!-- footer -->
 
 <script>
-
-var navLinks = document.querySelectorAll('.navbar a');
-
-navLinks.forEach(function(link) {
-  if (link.href === window.location.href) {
-    link.classList.add('active');
+var prevScrollpos = window.pageYOffset;
+window.onscroll = function() {
+var currentScrollPos = window.pageYOffset;
+  if (prevScrollpos > currentScrollPos) {
+    document.getElementById("hide-navbar").style.top = "0";
+  } else {
+    document.getElementById("hide-navbar").style.top = "-50px";
   }
-});
-
-
+  prevScrollpos = currentScrollPos;
+}
 </script>
 
 <script>
-function scrollToTop() {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}
+  // Get all the links inside the navbar
+  const links = document.querySelectorAll('.navbar a');
+
+  // Add a click event listener to each link
+  links.forEach(link => {
+    link.addEventListener('click', () => {
+      // Remove the 'active' class from all links
+      links.forEach(link => link.classList.remove('active'));
+
+      // Add the 'active' class to the clicked link
+      link.classList.add('active');
+    });
+  });
+</script>
+
+    <script>
+        var isDarkMode = localStorage.getItem("darkMode") === "true"; // Check if dark mode is enabled in localStorage
+
+        // Function to set the dark mode state and update the UI
+        function setDarkMode(isDark) {
+            var element = document.body;
+            if (isDark) {
+                element.classList.add("dark-mode");
+                document.getElementById("toggleIcon").textContent = "☀️";
+            } else {
+                element.classList.remove("dark-mode");
+                document.getElementById("toggleIcon").textContent = "🌙";
+            }
+        }
+
+        // Function to toggle dark mode
+        function toggleDarkMode() {
+            isDarkMode = !isDarkMode; // Toggle state
+            localStorage.setItem("darkMode", isDarkMode); // Store the state in localStorage
+            setDarkMode(isDarkMode); // Update the UI
+
+            // Toggle the popup starts here
+            var popup = document.getElementById("popup");
+            popup.style.display = "block";
+  
+            // Hide the popup after a delay
+            setTimeout(function() {
+                popup.style.display = "none";
+            }, 2000); // Display for 2 seconds
+            // Toggle the popup ends here
+        }
+
+        // Call setDarkMode initially to set the initial state
+        setDarkMode(isDarkMode);
+    </script>
+
+<script>
+    // Get references to the modal and trigger
+    const modal = document.getElementById('myModal');
+    const openModalTrigger = document.getElementById('openModalTrigger');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+
+    // Open the modal when the trigger is clicked
+    openModalTrigger.addEventListener('click', () => {
+        modal.style.display = 'block';
+    });
+
+    // Close the modal when the close button is clicked
+    closeModalBtn.addEventListener('click', () => {
+        modal.style.display = 'none';
+    });
+
+    window.addEventListener('click', (event) => {
+        if (event.target === modal) {
+            modal.style.display = 'none';
+        }
+    });
+</script>
+
+    <script>
+        let isCopied = false;
+
+        // Function to toggle the button text and icon
+        function toggleButton() {
+            const copyButton = document.getElementById('copyButton');
+            if (isCopied) {
+                // Change to the copy icon
+                copyButton.innerHTML = '📋 Copy Text';
+            } else {
+                // Change to the check mark icon
+                copyButton.innerHTML = '✅ Copied';
+            }
+            isCopied = !isCopied;
+        }
+
+        // Function to copy text from a div to the clipboard
+        function copyText() {
+            // Select the text within the div
+            const text = document.getElementById('textToCopy');
+            const range = document.createRange();
+            range.selectNode(text);
+            window.getSelection().removeAllRanges();
+            window.getSelection().addRange(range);
+
+            // Copy the selected text to the clipboard
+            document.execCommand('copy');
+
+            // Deselect the text
+            window.getSelection().removeAllRanges();
+
+            // Toggle the button text and icon
+            toggleButton();
+            
+            // Automatically switch back to the copy icon after 2 seconds
+            setTimeout(toggleButton, 2000);
+        }
+
+        // Add a click event listener to the copy button
+        const copyButton = document.getElementById('copyButton');
+        copyButton.addEventListener('click', copyText);
+    </script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById("myForm");
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    
+    // Get form values
+    const name = form.name.value;
+    const email = document.getElementById("email").value;
+    const message = form.message.value;
+    
+    // Construct mailto URL for Outlook.com
+    const mailtoUrl = `mailto:?to=${encodeURIComponent('rlopez0712@outlook.com')}&subject=Message from ${encodeURIComponent(name)}&body=${encodeURIComponent(message)}`;
+    
+    // Open the email compose window
+    window.location.href = mailtoUrl;
+  });
+});
+
 </script>
 
 </body>
